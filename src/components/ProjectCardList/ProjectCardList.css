@@ -84,7 +84,7 @@
 .project-card--outlink {
   border: 2px solid var(--default-text);
   padding: 0.5rem;
-  width: 20%;
+  flex: 1;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 10px;

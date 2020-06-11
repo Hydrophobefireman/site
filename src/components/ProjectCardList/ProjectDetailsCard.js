@@ -103,7 +103,7 @@ function Card(props) {
       h("div", { class: "project-card--project-desc" }, description),
       h(
         "div",
-        { class: "ma_tc", style: "margin-top:1.5rem" },
+        { class: "ma_tc", style: "margin-top:1.5rem;width:80%" },
         app &&
           h(
             "a",
