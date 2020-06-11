@@ -37,7 +37,7 @@
   },
   {
     "title": "QWC",
-    "description": "",
+    "description": "Create WebComponents without having to write classes, just write the <template>",
     "short": "Quic Web Components",
     "github": "https://github.com/Hydrophobefireman/qwc",
     "app": "/qwc"
@@ -102,12 +102,15 @@
     "title": "Image Scraper",
     "description": "Python script to get images from google and bing",
     "short": "Simple python scripts",
-    "github": "https://github.com/Hydrophobefireman/image-scrape"
+    "github": "https://github.com/Hydrophobefireman/image-scrape",
+    "app": ""
   },
   {
     "title": "DSS-JS",
     "description": "Simple bundler agnostic CSS library, compiles classnames using hashes",
-    "short": "CSS Lib"
+    "short": "CSS Lib",
+    "github": "https://github.com/hydrophobefireman/dss-js",
+    "app": ""
   },
   {
     "title": "P2P File Share",
