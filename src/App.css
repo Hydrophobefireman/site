@@ -1,0 +1,38 @@
+html {
+  --def-gradient: linear-gradient(130deg, #000000 42%, #b400ff 100%);
+  --default-background: #000;
+  --default-text: #fff;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--default-background);
+  color: var(--default-text);
+
+  font-family: "Ubuntu", sans-serif;
+}
+
+.text-8-bit {
+  font-family: "Press Start 2P";
+  font-size: 1.1rem;
+  letter-spacing: 1.1px;
+}
+
+#app-mount {
+  margin: auto;
+  text-align: center;
+}
+.hoverable:not([disabled]) {
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  transform-style: preserve-3d;
+}
+.hoverable:active:not([disabled]),
+.hoverable:focus:not([disabled]),
+.hoverable:hover:not([disabled]) {
+  transform: perspective(1px) scale(1.048) translateZ(0);
+}
+.ma_tc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: revert;
+  width: 100%;
+}

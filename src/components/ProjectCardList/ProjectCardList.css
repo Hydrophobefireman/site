@@ -1,0 +1,101 @@
+.project-card--box {
+  opacity: 0;
+  transition: 0.3s linear;
+  animation: opacity_anim 0.5s linear;
+  animation-fill-mode: forwards;
+  margin-top: 2.5rem;
+  padding: 0.8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes opacity_anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.project-card--container {
+  margin: 0.5rem;
+  padding: 1.2rem;
+  border: 2px solid var(--default-text);
+  background: var(--def-gradient);
+  border-radius: 15px;
+}
+
+.project-card--anim-details {
+  transition: 0.1s linear;
+}
+
+.project-card--close {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIj48L3BhdGg+PHBhdGggZD0iTTE0LjU5IDhMMTIgMTAuNTkgOS40MSA4IDggOS40MSAxMC41OSAxMiA4IDE0LjU5IDkuNDEgMTYgMTIgMTMuNDEgMTQuNTkgMTYgMTYgMTQuNTkgMTMuNDEgMTIgMTYgOS40MSAxNC41OSA4ek0xMiAyQzYuNDcgMiAyIDYuNDcgMiAxMnM0LjQ3IDEwIDEwIDEwIDEwLTQuNDcgMTAtMTBTMTcuNTMgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHoiIGZpbGw9IiNmZmYiPjwvcGF0aD48L3N2Zz4=");
+  height: 1.5rem;
+  width: 1.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.project-card--project-title {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card--project-desc {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.project-card--grid-container {
+  transition: 0.3s linear;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center;
+  justify-content: center; */
+}
+.project-card--grid-container.enabled {
+  transform: translateX(-5%);
+}
+
+.project-card--c {
+  background: var(--def-gradient);
+  border-radius: 20px;
+  border: 2px solid var(--default-text);
+  margin: auto;
+  transition: 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card--proj-runs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.project-card--outlink {
+  border: 2px solid var(--default-text);
+  padding: 0.5rem;
+  width: 20%;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  color: var(--default-text);
+}
+.project-card--static-container {
+  display: flex;
+  height: 100vh;
+  position: fixed;
+  width: 50%;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+}
