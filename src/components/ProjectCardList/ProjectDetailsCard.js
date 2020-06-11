@@ -71,7 +71,10 @@ export function ProjectDetailsMaxWidth(props) {
     h(Card, {
       ...props,
       style: {
-        height: "50vh",
+        paddingBottom: "2rem",
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
+        maxHeight: "50vh",
         flex: 1,
         position: "sticky",
         width: "50%",
@@ -110,7 +113,6 @@ function Card(props) {
             {
               href: app,
               class: "hoverable project-card--outlink",
-              target: "_blank",
             },
             "Open"
           ),
@@ -120,7 +122,6 @@ function Card(props) {
             {
               href: github,
               class: "hoverable project-card--outlink",
-              target: "_blank",
             },
             "Source Code"
           )
