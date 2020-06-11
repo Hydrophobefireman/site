@@ -76,7 +76,7 @@ export function ProjectDetailsMaxWidth(props) {
         position: "sticky",
         width: "50%",
         right: 0,
-        top: "50%",
+        top: "40%",
       },
     })
   );
