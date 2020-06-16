@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Base64 Text Encodings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        a {
+            color: #000
+        }
+
+        .cst {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .ipg {
+
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            padding: 8px;
+            border: none;
+            outline: none;
+            background: #3367d6;
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="/p/urltools">Go Back</a>
+    </div>
+    <div>
+        <div class=cst>
+            <br>
+            <span>Choose one if the following(Please enter the file with its mime-type(data:image/jpeg,base64...)</span>
+            <div>
+                <div class=buttons-row>
+                    <span class=button-sp>
+                        <button class=ipg id=urld>Decode File</button>
+                        <button class=ipg id=urle>Encode File</button>
+                    </span>
+                </div>
+            </div>
+            <div class=bo style="margin-top: 30px">
+                <div id=url-encoder style="display: none;">
+                    <span>Select a file you want to Encode</span>
+                    <div class=txtar>
+                        <input type=file id=file_>
+                        <textarea id=enc style="height:300px;width:90%;">
+                        </textarea>
+                        <div>
+                            <button id=f-enc class=ipg>Encode File</button>
+                        </div>
+                    </div>
+                </div>
+                <div id=url-decoder style="display: none;">
+                    <span>Enter The String You want to Decode</span>
+                    <div class=txtar>
+                        <textarea id=dec style="height:300px;width:90%;">
+                        </textarea>
+                        <div>
+                            <button id=f-dec class=ipg>decode String</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("enc").value = "";
+        document.getElementById("dec").value = "";
+        const encode_button = document.getElementById("urle");
+        const decode_button = document.getElementById("urld");
+        encode_button.onclick = () => {
+            document.getElementById("url-decoder").style.display = "none";
+            document.getElementById("url-encoder").style.display = "block";
+        }
+        decode_button.onclick = () => {
+            document.getElementById("url-decoder").style.display = "block";
+            document.getElementById("url-encoder").style.display = "none";
+        }
+        const b = document.getElementById("urld");
+        b.onmouseover = () => {
+            b.style.boxShadow = "3px 3px #d9dce0";
+        }
+        b.onmouseout = () => {
+            b.style.boxShadow = "0px 0px #d9dce0";
+
+        }
+        b.ontouchstart = () => {
+            b.style.boxShadow = "3px 3px #d9dce0";
+        }
+        b.ontouchend = () => {
+            b.style.boxShadow = "0px 0px #d9dce0";
+
+        }
+        const ab = document.getElementById("urle");
+        ab.onmouseover = () => {
+            ab.style.boxShadow = "3px 3px #d9dce0";
+        }
+        ab.onmouseout = () => {
+            ab.style.boxShadow = "0px 0px #d9dce0";
+
+        }
+        ab.ontouchstart = () => {
+            ab.style.boxShadow = "3px 3px #d9dce0";
+        }
+        ab.ontouchend = () => {
+            ab.style.boxShadow = "0px 0px #d9dce0";
+
+        }
+        const s = document.getElementById("f-enc");
+        const f = document.getElementById("f-dec");
+        s.onclick = () => {
+            const reader = new FileReader();
+            const file = document.getElementById('file_').files[0];
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                const e_ar = document.getElementById("enc");
+                const data = reader.result;
+                e_ar.value = data;
+            }
+        }
+        f.onclick = () => {
+            const e_ar = document.getElementById("dec");
+            const txt = e_ar.value;
+            const a = document.createElement('a');
+            a.href = txt;
+            a.target = "__blank";
+            a.download = 'file';
+            a.click()
+        }
+    </script>
+</body>
+
+</html>

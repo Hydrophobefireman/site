@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title>Instagrammify Images</title>
+    <style>
+      .gimg {
+        width: 150px;
+        height: 200px;
+        display: block;
+        margin: auto;
+      }
+      .resbtn {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 4px;
+        border: 1px solid #6200ee;
+        outline: 0;
+        color: #6200ee;
+        min-width: 80px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .resbtn:active,
+      .resbtn:hover {
+        box-shadow: 2px 2px #d9dce0;
+        background-color: #6200ee;
+        color: #fff;
+      }
+      #root {
+        margin: auto;
+        text-align: center;
+      }
+    </style>
+    <script>
+      window.onerror = e => alert(e);
+    </script>
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+  </head>
+  <body>
+    <div id="root">
+      <div><button class="resbtn" id="file">Select Image</button></div>
+      <div id="result"></div>
+    </div>
+    <script>
+      (() => {
+        const e = document.querySelector.bind(document),
+          t = document,
+          n = (window, e("#result"));
+        e("#file").onclick = function() {
+          const e = t.createElement("input");
+          (e.type = "file"),
+            (e.accept = "image/*"),
+            (e.onchange = function() {
+              const c = e.files[0],
+                a = new FileReader();
+              (a.onload = function() {
+                !(function(e) {
+                  const c = new Image();
+                  (c.onload = function() {
+                    const e = t.createElement("canvas"),
+                      a = e.getContext("2d"),
+                      o = new Image(),
+                      i = c.height,
+                      l = c.width,
+                      _s = Math.max(i, l),
+                      s =
+                        +(
+                          new URLSearchParams(
+                            window.location.hash.substr(1)
+                          ).get("s") || 0
+                        ) + _s;
+                    console.log(s);
+                    (e.height = e.width = s),
+                      (a.fillStyle = "#fff"),
+                      a.fillRect(0, 0, s, s),
+                      a.drawImage(
+                        c,
+                        parseInt((s - l) / 2),
+                        parseInt((s - i) / 2)
+                      ),
+                      (o.src = e.toBlob(e => {
+                        const t = URL.createObjectURL(e);
+                        (o.src = t), n.appendChild(o), (o.className = "gimg");
+                      }));
+                  }),
+                    (c.src = e);
+                })(a.result);
+              }),
+                a.readAsDataURL(c);
+            }),
+            e.click();
+        };
+      })();
+    </script>
+  </body>
+</html>

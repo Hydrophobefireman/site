@@ -1,0 +1,48 @@
+<html>
+ <head>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Images
+  </title>
+  <style>
+   .gimg {
+width:150px;
+height:200px; 
+display:block;
+margin:auto;
+}
+.resbtn {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 4px;
+    border: 1px solid #6200ee;
+    outline: 0;
+    color: #6200ee;
+    min-width: 80px;
+    margin: 10px;
+    cursor: pointer
+}
+
+.resbtn:active,
+.resbtn:hover {
+    box-shadow: 2px 2px #d9dce0;
+    background-color: #6200ee;
+    color: #fff
+}
+#root{margin:auto;text-align:center}
+  </style>
+ </head>
+ <body>
+  <div id="root">
+   <div>
+    <button class="resbtn" id="file">
+     Select Image
+    </button>
+   </div>
+   <div id="result">
+   </div>
+  </div>
+  <script>
+(()=>{const e=document.querySelector.bind(document),t=e("#file"),n=e("#result"),c=document.createElement("canvas"),a=c.getContext("2d");t.onclick=function(){const e=document.createElement("input");e.type="file",e.onchange=function(){!function(e){const t=new FileReader;t.onload=function(){const e=t.result,o=new Image;o.onload=function(){c.height=o.height,c.width=o.width,a.drawImage(o,0,0);const e=new Image,t=new Image,d=new Image;e.className=t.className=d.className="gimg",c.toBlob(t=>{e.src=URL.createObjectURL(t)},"image/jpeg"),c.toBlob(e=>{t.src=URL.createObjectURL(e)},"image/png"),c.toBlob(e=>{d.src=URL.createObjectURL(e)},"image/webp"),d.title="webp",d.alt="webp is not supported",n.appendChild(document.createTextNode("JPEG")),n.appendChild(e),n.appendChild(document.createTextNode("PNG")),n.appendChild(t),n.appendChild(document.createTextNode("WEBP")),n.appendChild(d)},o.src=e},t.readAsDataURL(e)}(e.files[0])},e.click()}})();</script>
+ </body>
+</html>

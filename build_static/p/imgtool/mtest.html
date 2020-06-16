@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script>
+        document.write("<html><head></head><body><video></video></body>");
+        var constraints = {
+            video: {
+                width: 1280,
+                height: 720
+            }
+        };
+
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then(function (mediaStream) {
+                var video = document.querySelector('video');
+                video.srcObject = mediaStream;
+                video.onloadedmetadata = function (e) {
+                    video.play();
+                };
+            })
+            .catch(function (err) {
+                console.log(err.name + ": " + err.message);
+            });
+    </script>
+</head>
+
+</html>

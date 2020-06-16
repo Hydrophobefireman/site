@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>File Hasher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" media="screen" rel="stylesheet" type="text/css" />
+    <style>
+        .center {
+            margin: auto;
+            text-align: center
+        }
+
+        .hash {
+            border: 2px solid #e3e3e3;
+            border-radius: 10px;
+            overflow-wrap: break-word;
+            padding: 8px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #results {
+            border: 2px solid #e3e3e3;
+            padding: 5px;
+        }
+
+        .resbtn {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 4px;
+            border: 1px solid #6200ee;
+            outline: 0;
+            color: #6200ee;
+            min-width: 80px;
+            margin: 10px;
+            cursor: pointer
+        }
+
+        .resbtn:active,
+        .resbtn:hover {
+            box-shadow: 2px 2px #d9dce0;
+            background-color: #6200ee;
+            color: #fff
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="center">
+        <div id="app-root">
+            <div>Select a File and it's hashes will be returned</div>
+            <div>The file never leaves your computer. All hashing is done offline</div>
+            <button class="resbtn" id="select_file">Choose File</button>
+            <div id="results">
+                <div id="SHA-256" class="hash">
+                    <div class="hex"></div>
+                    <div class="base64"></div>
+                </div>
+                <div id="SHA-384" class="hash">
+                    <div class="hex"></div>
+                    <div class="base64"></div>
+                </div>
+                <div id="SHA-512" class="hash">
+                    <div class="hex"></div>
+                    <div class="base64"></div>
+                </div>
+            </div>
+            <div style="margin-top:30px">Available Methods:SHA-256, SHA-384, and SHA-512</div>
+            <div>Note that the current API does not support streaming the data..thus files too large to be kept in
+                memory will not work </div>
+        </div>
+    </div>
+    <script>
+        const supported_methods = ["SHA-256", "SHA-384", "SHA-512"];
+        const button = document.getElementById("select_file");
+        const results = document.getElementById("results");
+
+        function hex(buffer) {
+            const hexCodes = [];
+            const view = new DataView(buffer);
+            for (let i = 0; i < view.byteLength; i += 4) {
+                const value = view.getUint32(i);
+                const stringValue = value.toString(16);
+                const padding = '00000000';
+                const paddedValue = (padding + stringValue).slice(-padding.length);
+                hexCodes.push(paddedValue);
+            }
+            return hexCodes.join("");
+        };
+
+        function arrayBufferToBase64(buffer) {
+            return new Promise((resolve, _) => {
+                const blob = new Blob([buffer], {
+                    type: 'application/octet-binary'
+                });
+                const reader = new FileReader();
+                reader.onload = evt => {
+                    const dataurl = evt.target.result;
+                    resolve(dataurl.substr(dataurl.indexOf(',') + 1));
+                };
+                reader.readAsDataURL(blob);
+            });
+        }
+
+        async function hash_(file, method) {
+            console.log("METHOD:" + method)
+            const reader = new FileReader;
+            reader.onload = async () => {
+                const hash = await crypto.subtle.digest(method, reader.result);
+                const res = hex(hash),
+                    base64res = await arrayBufferToBase64(hash);
+                const div = document.getElementById(method);
+                const hx = div.querySelector(".hex");
+                const b64 = div.querySelector(".base64");
+                div.innerHTML = `${method} Hash:`
+                hx.innerHTML = `<b>hex:</b>  ${res}`;
+                b64.innerHTML = `<b>Base64:</b>  ${base64res}`;
+                div.appendChild(hx);
+                div.appendChild(b64);
+                results.appendChild(div);
+            };
+            reader.readAsArrayBuffer(file);
+        }
+        button.onclick = () => {
+            const inp = document.createElement("input");
+            inp.type = "file";
+            inp.onchange = () => {
+                const file = inp.files[0];
+                button.textContent = "Hashing..."
+                for (const i of supported_methods) {
+                    console.log("hashing");
+                    hash_(file, i)
+                };
+                button.textContent = "Choose File"
+            }
+            inp.click();
+        }
+    </script>
+</body>
+
+</html>

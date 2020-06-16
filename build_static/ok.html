@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wow</title>
+    <style>
+      body {
+        background: black;
+        font-family: monospace;
+        color: white;
+        font-size: 1.05rem;
+        transition: 0.3s linear;
+      }
+      .done {
+        background: white;
+        color: black;
+      }
+      .x-hidden {
+        display: none;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin: auto; text-align: center;">
+      <div>nice.</div>
+      <div>image is reversed.</div>
+      <div>I can fix that for you</div>
+      <div>
+        <button id="open" style="cursor: pointer;">
+          Click to upload image
+        </button>
+      </div>
+      <div id="result">
+        <div class="x-hidden">Here is your image</div>
+        <img id="wait" />
+        <a href="" id="x-url">URL</a>
+      </div>
+    </div>
+  </body>
+  <script>
+    const btn = document.getElementById("open");
+    const input = document.createElement("input");
+    const img = document.getElementById("wait");
+    const xh = document.querySelector(".x-hidden");
+    const anchor = document.getElementById("x-url");
+    input.type = "file";
+    input.addEventListener("change", function () {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = function () {
+        const uint8 = new Uint8Array(reader.result);
+        const rev = uint8.reverse();
+        const blob = new Blob([rev], { type: "image/png" });
+        const U = URL.createObjectURL(blob);
+        img.src = U;
+        xh.style.display = "block";
+        document.body.classList.add("done");
+        anchor.href = U;
+      };
+      reader.readAsArrayBuffer(file);
+    });
+    btn.addEventListener("click", function () {
+      input.click();
+    });
+  </script>
+</html>
