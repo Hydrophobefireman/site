@@ -8,15 +8,7 @@ import "./components/HeadingText/HeadingText.css";
 import "./components/ProjectCardList/ProjectCardList.css";
 
 function App() {
-  const [cardList, setCardList] = useState(false);
-
-  const enableCardList = useCallback(() => setCardList(true), []);
-  return h(
-    "main",
-    null,
-    h(HeadingText, { displayCardList: enableCardList }),
-    cardList && h(ProjectCardList)
-  );
+  return h("main", null, h(HeadingText), h(ProjectCardList));
 }
 
 render(h(App), document.getElementById("app-mount"));

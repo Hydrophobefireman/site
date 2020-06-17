@@ -66,7 +66,7 @@
   {
     "title": "Tempfiles",
     "description": "Share files for a while, files are deleted automatically",
-    "short": "Ephermal file sharing",
+    "short": "Ephemeral file sharing",
     "github": "https://github.com/Hydrophobefireman/tempfiles",
     "app": "https://tempfiles.herokuapp.com"
   },

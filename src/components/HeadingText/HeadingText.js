@@ -25,7 +25,7 @@ export function HeadingText(props) {
         h(TypedText, {
           text: "I make stuff... sometimes it breaks",
           interval: 45,
-          onAnimationOver: props.displayCardList,
+          // onAnimationOver: props.displayCardList,
         })
       )
   );
