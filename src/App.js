@@ -1,4 +1,4 @@
-import { render, h, useState, useCallback } from "@hydrophobefireman/ui-lib";
+import { render, h } from "@hydrophobefireman/ui-lib";
 
 import { HeadingText } from "./components/HeadingText/HeadingText";
 import { ProjectCardList } from "./components/ProjectCardList/ProjectCardList";
