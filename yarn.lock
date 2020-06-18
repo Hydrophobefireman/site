@@ -846,10 +846,10 @@
   resolved "https://registry.yarnpkg.com/@hydrophobefireman/j-utils/-/j-utils-2.1.0.tgz#a09f658f10f6c779ec970d0849902a56cedf4c79"
   integrity sha512-OiaABgtcx7a/rdpf0YHxPxpRcPjTZg0FxMunIFgGAg+f27WQYd3fDrSBU+jOSpNU9auUC20k54oTi2PTJ/FJOw==
 
-"@hydrophobefireman/ui-lib@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@hydrophobefireman/ui-lib/-/ui-lib-1.3.0.tgz#311ca4cc34be5e348d5514315389a42f4a77dbb2"
-  integrity sha512-zCPpgZazuVWHzUFMUnAodOoktPCDi6HAEeF9cJcnrZeKjLCMT3zyAfvrUBEfY9y4hniB6DWaoB9UqvBv33+bdQ==
+"@hydrophobefireman/ui-lib@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@hydrophobefireman/ui-lib/-/ui-lib-1.3.1.tgz#5d0ea50898a11c727af0b803bd58aef985c54db3"
+  integrity sha512-cIwk/CMfkLR4rW6jclyumEMCrFWPSYmAdOEGooCo6CKMEMsqgH+0yVow45ElZCK/XnUzDI+DrxbUQqEaCTfqow==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
