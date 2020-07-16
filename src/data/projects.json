@@ -32,7 +32,7 @@
     "description": "Search google and bing at once. Supports images",
     "short": "File encryption",
     "github": "https://github.com/Hydrophobefireman/searchpy",
-    "app": "https://searchpy.herokuapp.com"
+    "app": "https://searchpy.vercel.app"
   },
 
   {
