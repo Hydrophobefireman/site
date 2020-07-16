@@ -30,7 +30,7 @@
   {
     "title": "SearchPy",
     "description": "Search google and bing at once. Supports images",
-    "short": "File encryption",
+    "short": "Meta search engine",
     "github": "https://github.com/Hydrophobefireman/searchpy",
     "app": "https://searchpy.vercel.app"
   },
