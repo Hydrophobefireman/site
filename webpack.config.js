@@ -65,7 +65,7 @@ function getCfg(isLegacy) {
     },
     entry: `${__dirname}/src/App.js`,
     output: {
-      // ecmaVersion: isLegacy ? 5 : 6,
+      ecmaVersion: isLegacy ? 5 : 6,
       path: `${__dirname}/docs/`,
       filename: `${isLegacy ? "legacy" : "es6"}/[name]-[contenthash].js`,
     },
