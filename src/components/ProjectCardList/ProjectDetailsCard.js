@@ -76,9 +76,9 @@ export function ProjectDetailsMaxWidth(props) {
         paddingRight: "1rem",
         maxHeight: "50vh",
         flex: 1,
-        position: "sticky",
-        width: "50%",
+        width: "45vw",
         right: 0,
+        marginRight: "15px",
         top: "40%",
       },
     })

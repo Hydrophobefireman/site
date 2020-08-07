@@ -11,6 +11,10 @@
   align-items: center;
   justify-content: center;
 }
+.project-card--box.enabled {
+  transform: translateX(-15%);
+}
+
 @keyframes opacity_anim {
   from {
     opacity: 0;
@@ -64,9 +68,6 @@
   flex-direction: row;
   /* align-items: center;
   justify-content: center; */
-}
-.project-card--grid-container.enabled {
-  transform: translateX(-5%);
 }
 
 .project-card--c {

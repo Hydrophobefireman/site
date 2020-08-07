@@ -30,13 +30,14 @@ export function ProjectCardList() {
   return h(
     "div",
     {
-      class: `project-card--grid-container${
-        details ? (!nonWideScreen ? " enabled" : " nw") : ""
-      }`,
+      class: "project-card--grid-container",
     },
     h(
       "div",
-      { class: "project-card--box" },
+      {
+        class:
+          `project-card--box${details ? (!nonWideScreen ? " enabled" : " nw") : ""}`,
+      },
       projects.map((x) =>
         h(ProjectCard, { data: x, animateFrom: animateCardDetails })
       )
