@@ -27,6 +27,9 @@
     <script data-js="touch-intent-css-fix">
       <%= require("./injectables/css-fix.js") %>
     </script>
+    <script id="projects.json">
+      window._projects = JSON.parse(<%= JSON.stringify(JSON.stringify(require("./injectables/projects.json")))%>)
+    </script>
     <base href="/" />
   </head>
   <body>

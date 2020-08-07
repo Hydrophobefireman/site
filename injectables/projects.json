@@ -14,6 +14,20 @@
     "app": "/DomShot"
   },
   {
+    "title": "Reddit Slideshow",
+    "description": "View media from reddit, supports v.redd.it with audio",
+    "short": "Media App",
+    "github": "https://github.com/Hydrophobefireman/sreddit",
+    "app": "https://sreddit.vercel.app"
+  },
+  {
+    "title": "MDB",
+    "description": "View media from reddit, supports v.redd.it with audio",
+    "short": "Movies and Posters",
+    "github": "https://github.com/Hydrophobefireman/mdb",
+    "app": "https://mdb.vercel.app"
+  },
+  {
     "title": "Cryptex",
     "description": "Client side file encryption using web crypto APIs",
     "short": "File encryption",
@@ -104,6 +118,13 @@
     "short": "..",
     "github": "https://github.com/Hydrophobefireman/adblockcheck",
     "app": ""
+  },
+  {
+    "title": "Emoji Picker",
+    "description": "That's it..",
+    "short": "..",
+    "github": "https://github.com/Hydrophobefireman/emojipicker",
+    "app": "https://emojipicker.now.sh"
   },
   {
     "title": "NewsPy",

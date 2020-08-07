@@ -6,7 +6,8 @@ import {
 } from "./ProjectDetailsCard";
 import { useViewportSize } from "./viewportSize";
 
-import projects from "../../data/projects.json";
+const projects = window._projects;
+window._projects = null;
 
 export function ProjectCardList() {
   const [details, setDetails] = useState(null);
