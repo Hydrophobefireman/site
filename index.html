@@ -25,7 +25,7 @@
       onload="this.media='all'"
     />
     <script data-js="touch-intent-css-fix">
-      <%= require("./injectables/css-fix.js") %>
+      <%= htmlWebpackPlugin.options.cssFix %>
     </script>
     <script id="projects.json">
       window._projects = JSON.parse(<%= JSON.stringify(JSON.stringify(require("./injectables/projects.json")))%>)

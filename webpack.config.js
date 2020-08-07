@@ -80,6 +80,24 @@ function getCfg(isLegacy) {
     },
     plugins: [
       new HtmlWebpackPlugin({
+        templateParameters: async function templateParametersGenerator(
+          compilation,
+          assets,
+          assetTags,
+          options
+        ) {
+          return {
+            compilation: compilation,
+            webpackConfig: compilation.options,
+            htmlWebpackPlugin: {
+              tags: assetTags,
+              files: assets,
+              options: Object.assign(options, {
+                cssFix: await require("./injectables/css-fix.js"),
+              }),
+            },
+          };
+        },
         inject: "body",
         template: `${__dirname}/index.html`,
         xhtml: !0,

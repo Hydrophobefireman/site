@@ -9,4 +9,4 @@ const fn = function () {
   }
 };
 
-module.exports = minify(`(${fn})()`).code;
+module.exports = minify(`(${fn})()`).then((x) => x.code);
