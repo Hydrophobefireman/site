@@ -11,26 +11,20 @@ html {
   font-family: "Ubuntu", sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
-
-.text-8-bit {
-  font-family: "Press Start 2P";
-  font-size: 1.1rem;
-  letter-spacing: 1.1px;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 #app-mount {
   margin: auto;
   /* text-align: center; */
-}
-.hoverable:not([disabled]) {
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  transform-style: preserve-3d;
-}
-.hoverable:active:not([disabled]),
-.hoverable:focus:not([disabled]),
-.hoverable:hover:not([disabled]) {
-  transform: perspective(1px) scale(1.048) translateZ(0);
 }
 
 a {

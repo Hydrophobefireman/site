@@ -104,7 +104,7 @@ function App() {
   const shouldHide = !useSharedStateValue(showBrowser);
   return (
     <section class={appShell}>
-      <div class={headingText}>Hydrophobefireman</div>
+      <h1 class={headingText}>Hydrophobefireman</h1>
       <section class={[browserWindow, shouldHide ? animAway : ""]}>
         <BrowserTabs />
         <AppLoader />

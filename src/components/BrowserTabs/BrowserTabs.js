@@ -127,7 +127,11 @@ export function BrowserTabs() {
             <Lock />
             {wideScreen && window.origin}/
           </span>
+          <label for="browser-input" class="sr-only">
+            Enter location
+          </label>
           <input
+            id="browser-input"
             class={[omnibox, urlInput]}
             onInput={onInput}
             value={value.replace(FIRST_SLASH, "")}
