@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "NODE_ENV=production webpack --config webpack.config.js && npm run postbuild",
+    "build": "NODE_ENV=production webpack --config webpack.config.js",
     "prebuild": "rm -rf ./docs/",
     "postbuild": "npm run copy-static",
     "copy-static": "for i in ./build_static/*;do echo \"$i\" && cp -r \"$i\" ./docs/; done"
