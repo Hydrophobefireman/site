@@ -7,11 +7,11 @@ const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin")
 const WebpackModuleNoModulePlugin = require("webpack-module-nomodule-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const cfg = require("./.babelrc");
-const { basename } = require("path");
+const { autoPrefixCSS } = require("catom/dist/css");
 
-const isProd = basename(__filename).includes(".prod");
+const mode = process.env.NODE_ENV;
 
-const mode = isProd ? "production" : "development";
+const isProd = mode === "production";
 
 function prodOrDev(a, b) {
   return isProd ? a : b;
@@ -25,6 +25,7 @@ const jsLoaderOptions = (isLegacy) => ({
     options: cfg.env[isLegacy ? "legacy" : "modern"],
   },
 });
+
 const cssLoaderOptions = {
   test: /\.css$/,
   use: [
@@ -34,7 +35,9 @@ const cssLoaderOptions = {
     },
     {
       loader: "postcss-loader",
-      options: { ident: "postcss", plugins: [autoPrefixPlugin()] },
+      options: {
+        postcssOptions: { plugins: [autoPrefixPlugin()] },
+      },
     },
   ],
 };
@@ -42,13 +45,24 @@ const contentLoaderOptions = {
   test: /\.(png|jpg|gif|ico|svg)$/,
   use: [{ loader: "url-loader", options: { fallback: "file-loader" } }],
 };
+function getEnvObject(isLegacy) {
+  const prod = !isLegacy;
+  return {
+    arrowFunction: prod,
+    const: prod,
+    destructuring: prod,
+    forOf: prod,
+    dynamicImport: prod,
+    module: prod,
+  };
+}
 function getCfg(isLegacy) {
   return {
     cache: {
-      type: "filesystem",
-      buildDependencies: {
-        config: [__filename],
-      },
+      type: "memory",
+      // buildDependencies: {
+      //   config: [__filename],
+      // },
     },
     devServer: {
       contentBase: `${__dirname}/docs`,
@@ -65,9 +79,10 @@ function getCfg(isLegacy) {
     },
     entry: `${__dirname}/src/App.js`,
     output: {
-      ecmaVersion: isLegacy ? 5 : 6,
+      environment: getEnvObject(isLegacy),
       path: `${__dirname}/docs/`,
       filename: `${isLegacy ? "legacy" : "es6"}/[name]-[contenthash].js`,
+      publicPath: "/",
     },
     mode,
     optimization: {
@@ -82,18 +97,21 @@ function getCfg(isLegacy) {
       new HtmlWebpackPlugin({
         templateParameters: async function templateParametersGenerator(
           compilation,
-          assets,
-          assetTags,
+          files,
+          tags,
           options
         ) {
+          const css = await autoPrefixCSS();
+          const touchIntentCSS = await require("./injectables/css-fix");
           return {
-            compilation: compilation,
+            compilation,
             webpackConfig: compilation.options,
             htmlWebpackPlugin: {
-              tags: assetTags,
-              files: assets,
+              tags,
+              files,
               options: Object.assign(options, {
-                cssFix: await require("./injectables/css-fix.js"),
+                css,
+                touchIntentCSS,
               }),
             },
           };
@@ -114,11 +132,10 @@ function getCfg(isLegacy) {
           !1
         ),
       }),
-
       new MiniCssExtractPlugin({}),
       isProd &&
         new OptimizeCSSAssetsPlugin({ cssProcessor: require("cssnano") }),
-      isProd && new HTMLInlineCSSWebpackPlugin({}),
+      // isProd && new HTMLInlineCSSWebpackPlugin({}),
       new WebpackModuleNoModulePlugin(isLegacy ? "legacy" : "modern"),
     ].filter(Boolean),
   };

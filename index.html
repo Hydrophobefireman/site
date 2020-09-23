@@ -5,28 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Hydrophobefireman" />
     <title>Hydrophobefireman</title>
-    <link rel="preconnect" href="https://pfonts.vercel.app" crossorigin />
-    <link
-      rel="preload"
-      href="https://pfonts.vercel.app/press-start-2p.css"
-      as="style"
-    />
+    <link rel="preconnect" href="https://fonts.pycode.tk" crossorigin />
+
+    <link rel="preload" href="https://fonts.pycode.tk/poppins.css" as="style" />
     <link
       rel="stylesheet"
-      href="https://pfonts.vercel.app/press-start-2p.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <link rel="preload" href="https://pfonts.vercel.app/ubuntu.css" as="style" />
-    <link
-      rel="stylesheet"
-      href="https://pfonts.vercel.app/ubuntu.css"
+      href="https://fonts.pycode.tk/poppins.css"
       media="print"
       onload="this.media='all'"
     />
     <script data-js="touch-intent-css-fix">
-      <%= htmlWebpackPlugin.options.cssFix %>
+      <%= htmlWebpackPlugin.options.touchIntentCSS %>
     </script>
+    <style>
+      <%= htmlWebpackPlugin.options.css %>
+    </style>
     <script id="projects.json">
       window._projects = JSON.parse(<%= JSON.stringify(JSON.stringify(require("./injectables/projects.json")))%>)
     </script>
@@ -36,5 +29,30 @@
     <div id="app-mount">
       <noscript>This App uses JavaScript...</noscript>
     </div>
+    <template is="custom" custom-element="loading-spinner"
+      ><style>
+        .spinner {
+          margin: auto;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          animation: rotate 0.8s infinite linear;
+          border: 6px solid transparent;
+          border-right-color: var(--default-accent);
+          border-bottom-color: var(--default-accent);
+          border-left-color: var(--default-accent);
+          transition: 0.3s linear;
+        }
+        @keyframes rotate {
+          from {
+            transform: rotate(0);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
+      <div class="spinner"></div
+    ></template>
   </body>
 </html>

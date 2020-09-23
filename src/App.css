@@ -1,12 +1,15 @@
 html {
-  --def-gradient: linear-gradient(130deg, #000000 42%, #b400ff 100%);
-  --default-background: #000;
-  --default-text: #fff;
-  -webkit-tap-highlight-color: transparent;
+  --default-background: #e6ecfa;
+  --default-accent: #7858c1;
+  --default-text: #424242;
+  --active-tab: #3e3e3e;
+  --inactive-tab: #2c2c2c;
+  --omnibox-input: #343434;
+  --box-shadow: 7px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: var(--default-background);
   color: var(--default-text);
-
   font-family: "Ubuntu", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .text-8-bit {
@@ -17,7 +20,7 @@ html {
 
 #app-mount {
   margin: auto;
-  text-align: center;
+  /* text-align: center; */
 }
 .hoverable:not([disabled]) {
   cursor: pointer;
@@ -29,10 +32,7 @@ html {
 .hoverable:hover:not([disabled]) {
   transform: perspective(1px) scale(1.048) translateZ(0);
 }
-.ma_tc {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: revert;
-  width: 100%;
+
+a {
+  text-decoration: none;
 }
