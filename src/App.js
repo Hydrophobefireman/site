@@ -52,7 +52,11 @@ const reloadDiv = css({
   fontSize: "1.5rem",
   marginTop: "2rem",
 });
-const animAway = css({ transform: "scale(0)", height: "0" });
+const animAway = css({
+  transform: "scale(0)",
+  height: "0",
+  overflow: "hidden",
+});
 function ReloadBtn() {
   const setBrowser = useSetSharedState(showBrowser);
   return (
