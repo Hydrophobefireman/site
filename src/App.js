@@ -46,6 +46,7 @@ const browserWindow = css({
   padding: "1.5rem",
   transition: "0.2s linear",
   transformOrigin: "0% 100%",
+  zIndex: 10,
 });
 const reloadDiv = css({
   textAlign: "center",
@@ -54,13 +55,23 @@ const reloadDiv = css({
 });
 const animAway = css({
   transform: "scale(0)",
-  height: "0",
+  // height: "0",
   overflow: "hidden",
 });
-function ReloadBtn() {
+function ReloadBtn({ show }) {
   const setBrowser = useSetSharedState(showBrowser);
   return (
-    <>
+    <div
+      class={[
+        css({
+          position: "absolute",
+          top: "25vh",
+          left: 0,
+          right: 0,
+        }),
+        show ? "" : css({ display: "none" }),
+      ]}
+    >
       <Sherlock
         class={css({
           margin: "auto",
@@ -97,7 +108,7 @@ function ReloadBtn() {
           Reboot
         </button>
       </div>
-    </>
+    </div>
   );
 }
 function App() {
@@ -109,7 +120,7 @@ function App() {
         <BrowserTabs />
         <AppLoader />
       </section>
-      {shouldHide && <ReloadBtn />}
+      <ReloadBtn show={shouldHide} />
     </section>
   );
 }
