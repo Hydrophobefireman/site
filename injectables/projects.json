@@ -1,6 +1,13 @@
 {
   "oss": [
     {
+      "title": "This website",
+      "description": "This website, made with UI - Lib",
+      "short": "",
+      "github": "https://github.com/hydrophobefireman/site",
+      "app": "/"
+    },
+    {
       "title": "UI - Lib",
       "description": "Tiny library to create user interfaces, used to build this website",
       "short": "Declarative UI",
