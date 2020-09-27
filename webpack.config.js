@@ -135,7 +135,7 @@ function getCfg(isLegacy) {
       new MiniCssExtractPlugin({}),
       isProd &&
         new OptimizeCSSAssetsPlugin({ cssProcessor: require("cssnano") }),
-      // isProd && new HTMLInlineCSSWebpackPlugin({}),
+      isProd && new HTMLInlineCSSWebpackPlugin({}),
       new WebpackModuleNoModulePlugin(isLegacy ? "legacy" : "modern"),
     ].filter(Boolean),
   };
