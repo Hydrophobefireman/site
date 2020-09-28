@@ -27,7 +27,10 @@ export default function Code() {
           target="_blank"
           class={css({
             textDecoration: "underline",
-            pseudo: { ":active": { color: "inherit" } },
+            pseudo: {
+              ":active": { color: "inherit" },
+              ":visited": { color: "inherit" },
+            },
           })}
         >
           Open Source

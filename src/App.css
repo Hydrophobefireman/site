@@ -8,7 +8,7 @@ html {
   --box-shadow: 7px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: var(--default-background);
   color: var(--default-text);
-  font-family: "Ubuntu", sans-serif;
+  font-family: poppins, "Ubuntu", sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 .sr-only {
