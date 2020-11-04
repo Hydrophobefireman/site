@@ -84,7 +84,7 @@
       push({ method: "WebSocket", url }, "apis");
       return new oldWS(url, ...a);
     };
-    navigator.sendBeacon = () => {
+    navigator.sendBeacon = (url) => {
       push({ method: "beacons", url }, "attemptedConnections");
     };
     Object.defineProperty(
@@ -156,7 +156,7 @@
           const src = await nextEvent(window, "message");
           if (src.data === "init") src.source.postMessage(this.__data, "*");
         });
-        const inp = this.shadowRoot.querySelector("input.inp-x");
+        const inp = this.shadowRoot.querySelector("textarea");
         this.shadowRoot
           .querySelector("form")
           .addEventListener("submit", () => __eval(inp.value));
