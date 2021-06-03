@@ -5,20 +5,16 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "webpack-cli serve",
-    "build": "NODE_ENV=production webpack --config webpack.config.js",
-    "prebuild": "rm -rf ./docs/",
-    "postbuild": "npm run copy-static",
-    "copy-static": "for i in ./build_static/*;do echo \"$i\" && cp -r \"$i\" ./docs/; done"
+    "start": "cross-env NODE_ENV=development webpack-cli serve",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "prebuild": "tsc --noEmit && node scripts/prebuild.js",
+    "postbuild": "node scripts/postbuild.js",
+    "prepare": "husky install"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hydrophobefireman/site.git"
-  },
-  "author": "",
+  "author": "Hudrophobefireman",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Hydrophobefireman/site/issues"
+    "url": "https://github.com/Hydrophobefireman/ui-lib-boilerplate/issues"
   },
   "dependencies": {
     "@hydrophobefireman/j-utils": "^2.1.7",
@@ -32,32 +28,36 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-react-jsx": "^7.14.3",
     "@babel/plugin-transform-runtime": "^7.14.3",
-    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-env": "^7.14.2",
     "@babel/preset-modules": "^0.1.4",
+    "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime-corejs3": "^7.14.0",
+    "@hydrophobefireman/module-nomodule": "^2.0.0",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^8.2.2",
     "catom": "^0.1.16",
-    "core-js": "^3.13.1",
+    "core-js": "^3.13.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
-    "cssnano": "^5.0.5",
+    "cssnano": "^5.0.4",
     "file-loader": "^6.2.0",
     "html-inline-css-webpack-plugin": "^1.11.0",
-    "html-webpack-inline-runtime-plugin": "^1.3.0",
     "html-webpack-plugin": "^5.3.1",
+    "husky": "^6.0.0",
     "mini-css-extract-plugin": "^1.6.0",
     "optimize-css-assets-webpack-plugin": "^6.0.0",
     "postcss": "^8.3.0",
     "postcss-loader": "^5.3.0",
-    "regenerator-runtime": "^0.13.7",
+    "prettier": "^2.3.0",
+    "pretty-quick": "^3.1.0",
     "style-ext-html-webpack-plugin": "^4.1.3",
     "terser": "^5.7.0",
-    "terser-webpack-plugin": "^5.1.3",
+    "terser-webpack-plugin": "^5.1.2",
+    "typescript": "^4.3.2",
     "url-loader": "^4.1.1",
-    "webpack": "^5.38.1",
+    "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-module-nomodule-plugin": "1.0.1"
+    "webpack-dev-server": "^3.11.2"
   },
   "homepage": "https://github.com/Hydrophobefireman/site#readme"
 }

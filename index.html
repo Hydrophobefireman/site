@@ -3,25 +3,22 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Hydrophobefireman" />
-    <title>Hydrophobefireman</title>
-    <link rel="preconnect" href="https://fonts.pycode.tk" crossorigin />
+    <title>UI Lib Starter</title>
+    <base href="/" />
+    <%= htmlWebpackPlugin.options.css %>
+    <!-- 
+      You can use this html file to add your own fonts, 
+      a best practice usage of font loading has been added for you.
+    -->
+    <link rel="preconnect" href="https://fonts.hpfm.dev" crossorigin />
 
-    <link rel="preload" href="https://fonts.pycode.tk/poppins.css" as="style" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.pycode.tk/poppins.css"
-      media="print"
-      onload="this.media='all'"
-    />
     <script data-js="touch-intent-css-fix">
-      <%= htmlWebpackPlugin.options.touchIntentCSS %>
+      /iPhone|iPod|iPad/.test(navigator.platform) &&
+        (document.head.appendChild(document.createElement("style")).innerText =
+          "*{cursor:pointer}");
     </script>
-    <style>
-      <%= htmlWebpackPlugin.options.css %>
-    </style>
     <script id="projects.json">
-      window._projects = JSON.parse(<%= JSON.stringify(JSON.stringify(require("./injectables/projects.json")))%>)
+      window._projects = JSON.parse(<%= JSON.stringify(JSON.stringify(require("./injectables/projects.json"))) %>)
     </script>
     <base href="/" />
   </head>
