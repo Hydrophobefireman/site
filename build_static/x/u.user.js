@@ -10,7 +10,7 @@
 // @exclude *google.com/recaptcha/*
 // ==/UserScript==
 (() => {
-  const ORIGIN = `https://pycode.tk`;
+  const ORIGIN = `https://hpfm.dev`;
   function __eval(text) {
     const scr = document.createElement("script");
     scr.text = text;
