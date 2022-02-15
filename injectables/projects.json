@@ -190,6 +190,12 @@
       "app": "https://halocrypt.com"
     },
     {
+      "title": "CollegeWarden",
+      "stack": "Javascript (ui-lib), python (flask)",
+      "description": "I made CollegeWarden as a project to track my college applications, notes and important documents. Storing them in one safe location. For my peace of mind, I baked in client side encryption into the web app; all information is stored securely on the backend and only decrypted on device.",
+      "app": "https://college.hpfm.dev"
+    },
+    {
       "title": "Micro Frameworks and tools",
       "stack": "Pure JS",
       "description": "I usually develop my own solutions for building frontend apps, from tiny, performant VDom libraries to disappearing atomic css build tools. Anything that makes making fast web apps enjoyable",
