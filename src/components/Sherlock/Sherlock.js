@@ -1,5 +1,5 @@
 // vectorized google map's noscript image
-export function Sherlock({ size = 100, class: cls }) {
+export function Sherlock({size = 100, class: cls = ""}) {
   return (
     <svg viewBox="0 0 320 386" height={size} width={size * 1.2} class={cls}>
       <path

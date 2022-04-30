@@ -1,6 +1,10 @@
-import { heading } from "../../styles";
-import { css } from "catom";
-const { oss } = window._projects;
+import {css} from "catom";
+
+import json from "@/data/projects.json";
+
+import {heading} from "../../styles";
+
+const {oss} = json;
 const ossCard = css({
   width: "200px",
   margin: "10px",
@@ -28,8 +32,8 @@ export default function Code() {
           class={css({
             textDecoration: "underline",
             pseudo: {
-              ":active": { color: "inherit" },
-              ":visited": { color: "inherit" },
+              ":active": {color: "inherit"},
+              ":visited": {color: "inherit"},
             },
           })}
         >
@@ -43,12 +47,12 @@ export default function Code() {
           justifyContent: "space-around",
         })}
       >
-        {oss.map(({ title, description, github, app }) => (
+        {oss.map(({title, description, github, app}) => (
           <div class={ossCard}>
             <div class={projectTitle}>
               {app ? (
                 <a
-                  class={css({ color: "#fff", textDecoration: "underline" })}
+                  class={css({color: "#fff", textDecoration: "underline"})}
                   target="_blank"
                   href={app}
                 >
@@ -68,7 +72,7 @@ export default function Code() {
               })}
             >
               <a
-                class={css({ color: "#fff", textDecoration: "underline" })}
+                class={css({color: "#fff", textDecoration: "underline"})}
                 href={github}
                 target="_blank"
               >

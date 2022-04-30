@@ -1,16 +1,18 @@
-import { useSetSharedState, useSharedStateValue } from "statedrive";
+import {css} from "catom";
+import {useSetSharedState, useSharedStateValue} from "statedrive";
+
 import {
   A,
-  useState,
-  useEffect,
-  useCallback,
-  loadURL,
   Router,
+  loadURL,
+  useCallback,
+  useEffect,
+  useState,
 } from "@hydrophobefireman/ui-lib";
-import { css } from "catom";
-import { useLocation, useViewportSize } from "../../hooks";
-import { showBrowser, is404 } from "../../state";
-import { AboutIcon, Beaker, Terminal, Icon404 } from "./icons";
+
+import {useLocation, useViewportSize} from "../../hooks";
+import {is404, showBrowser} from "../../state";
+import {AboutIcon, Beaker, Icon404, Terminal} from "./icons";
 const tab = css({
   minWidth: "20%",
   display: "inline-block",
@@ -22,9 +24,9 @@ const tab = css({
 });
 
 const FIRST_SLASH = /^\/+/g;
-const activeTab = css({ backgroundColor: "var(--active-tab)" });
-const inactiveTab = css({ backgroundColor: "var(--inactive-tab)" });
-const navCSS = css({ textAlign: "left", position: "relative" });
+const activeTab = css({backgroundColor: "var(--active-tab)"});
+const inactiveTab = css({backgroundColor: "var(--inactive-tab)"});
+const navCSS = css({textAlign: "left", position: "relative"});
 const omniBoxDiv = css({
   backgroundColor: "var(--active-tab)",
   marginLeft: "-.5rem;",
@@ -142,7 +144,7 @@ export function BrowserTabs() {
   );
 }
 
-function Lock({ size = 16 }) {
+function Lock({size = 16}) {
   return (
     <svg viewBox="0 0 36 36" height={size} width={size}>
       <path
@@ -157,7 +159,7 @@ function Lock({ size = 16 }) {
   );
 }
 const LoadingIcon = () => () => <loading-spinner size={5} />;
-function Tab({ activeLocations, icon, href, text, location }) {
+function Tab({activeLocations, icon, href, text, location}) {
   let isActive = location === href;
   if (!isActive && activeLocations) {
     isActive = activeLocations.indexOf(location) > -1;
@@ -171,9 +173,9 @@ function Tab({ activeLocations, icon, href, text, location }) {
 
   return (
     <A href={href} class={[tab, isActive ? activeTab : inactiveTab]}>
-      <span class={css({ display: "inline-flex", alignItems: "center" })}>
+      <span class={css({display: "inline-flex", alignItems: "center"})}>
         <Icon />
-        <span class={css({ marginLeft: "5px" })}>{text}</span>
+        <span class={css({marginLeft: "5px"})}>{text}</span>
       </span>
     </A>
   );

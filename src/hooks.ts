@@ -1,10 +1,10 @@
 import {
-  useState,
   Router,
-  useEffect,
   RouterSubscription,
+  useEffect,
+  useState,
 } from "@hydrophobefireman/ui-lib";
-function useMount(fn) {
+function useMount(fn: () => any) {
   return useEffect(fn, []);
 }
 

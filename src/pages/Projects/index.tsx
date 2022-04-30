@@ -1,6 +1,10 @@
-import { css } from "catom";
-import { heading, hoverable } from "../../styles";
-const { projects } = window._projects;
+import {css} from "catom";
+
+import data from "@/data/projects.json";
+
+import {heading, hoverable} from "../../styles";
+
+const {projects} = data;
 
 const card = css({
   background: "var(--default-accent)",
@@ -11,7 +15,7 @@ const card = css({
   display: "flex",
   flexDirection: "column",
   boxShadow: "var(--box-shadow)",
-  media: { "only screen and (min-width:700px)": { maxWidth: "35vw" } },
+  media: {"only screen and (min-width:700px)": {maxWidth: "35vw"}},
 });
 const viewBtn = [
   css({
@@ -30,7 +34,7 @@ const viewBtn = [
 ];
 export default function Projects() {
   return (
-    <section class={css({ fontSize: "1.2rem" })}>
+    <section class={css({fontSize: "1.2rem"})}>
       <div class={[heading]}>Projects</div>
       <section
         class={css({
@@ -42,18 +46,18 @@ export default function Projects() {
           },
         })}
       >
-        {projects.map(({ title, description, app, stack }) => (
+        {projects.map(({title, description, app, stack}) => (
           <div class={card}>
-            <div class={css({ fontWeight: "bold", fontSize: "1.4rem" })}>
+            <div class={css({fontWeight: "bold", fontSize: "1.4rem"})}>
               {title}
             </div>
-            <div class={css({ marginTop: "0.5rem" })}>
-              <span class={css({ fontWeight: "bold" })}>Stack:</span>
-              <span class={css({ fontWeight: "normal" })}>{stack}</span>
+            <div class={css({marginTop: "0.5rem"})}>
+              <span class={css({fontWeight: "bold"})}>Stack:</span>
+              <span class={css({fontWeight: "normal"})}>{stack}</span>
             </div>
             <div>{description}</div>
             <div
-              class={css({ flex: 1, display: "flex", alignItems: "flex-end" })}
+              class={css({flex: 1, display: "flex", alignItems: "flex-end"})}
             >
               <a
                 target="_blank"
