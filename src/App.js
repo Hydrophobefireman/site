@@ -47,6 +47,9 @@ const browserWindow = css({
   transition: "0.2s linear",
   transformOrigin: "0% 100%",
   zIndex: 10,
+  maxWidth: "100ch",
+  marginLeft: "auto",
+  marginRight: "auto"
 });
 const reloadDiv = css({
   textAlign: "center",
