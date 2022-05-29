@@ -42,9 +42,9 @@ export default function Code() {
       </div>
       <div
         class={css({
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))",
+          gridAutoRows: "1fr",
         })}
       >
         {oss.map(({title, description, github, app}) => (

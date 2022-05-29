@@ -28,6 +28,20 @@
       "github": "https://github.com/Hydrophobefireman/catom"
     },
     {
+      "title": "Journo",
+      "description": "Fully encrypted, offline first note taking and journal application.",
+      "short": "Private, offline, notes",
+      "github": "https://github.com/Hydrophobefireman/journo",
+      "app": "https://journo.hpfm.dev"
+    },
+    {
+      "title": "Drive",
+      "description": "Private cloud storage using WebCrypto and Cloudflare R2",
+      "short": "Free and private CDN and file storage",
+      "github": "https://github.com/Hydrophobefireman/drive",
+      "app": "https://drive.hpfm.dev"
+    },
+    {
       "title": "statedrive",
       "description": "A global, shared state solution for ui lib and friends",
       "short": "Easy shared state using hooks",
