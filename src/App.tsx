@@ -33,7 +33,6 @@ function App(): VNode {
   const shouldHide = !useSharedStateValue(showBrowser);
   return (
     <section class={appShell}>
-      <h1 class={headingText}>Hydrophobefireman</h1>
       <section class={[browserWindow, shouldHide ? animAway : ""]}>
         <BrowserTabs />
         <Router />

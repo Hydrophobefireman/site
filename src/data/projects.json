@@ -56,7 +56,7 @@
     },
     {
       "title": "MDB",
-      "description": "View media from reddit, supports v.redd.it with audio",
+      "description": "Movies database. Scrapes IMDB and heavily caches for quick access",
       "short": "Movies and Posters",
       "github": "https://github.com/Hydrophobefireman/mdb",
       "app": "https://mdb.vercel.app"
@@ -82,14 +82,6 @@
       "github": "https://github.com/Hydrophobefireman/searchpy",
       "app": "https://searchpy.vercel.app"
     },
-
-    {
-      "title": "CORS Proxy",
-      "description": "Simple proxy service that gives CORS safe responses by adding the required headers",
-      "short": "Proxy service",
-      "github": "https://github.com/Hydrophobefireman/cors-proxy",
-      "app": "https://cors-proxypy.now.sh"
-    },
     {
       "title": "Quic",
       "description": "Simple URL shortener, works client side using firebase",
@@ -109,13 +101,6 @@
       "description": "Download manager, supports resumptions",
       "short": "Download manager",
       "github": "https://github.com/Hydrophobefireman/downloader-py",
-      "app": ""
-    },
-    {
-      "title": "Composer",
-      "description": "Bringing some FP to python for no reason",
-      "short": "Pipe for Python",
-      "github": "https://github.com/Hydrophobefireman/composer",
       "app": ""
     },
     {
@@ -140,45 +125,10 @@
       "app": ""
     },
     {
-      "title": "APKMirror Extractor",
-      "description": "Fetch apk files from apk mirror",
-      "short": "App downloads",
-      "github": "https://github.com/Hydrophobefireman/apkmirror_extractor",
-      "app": ""
-    },
-    {
-      "title": "ADBlock Check",
-      "description": "Run thousands of requests to check if your DNS based ad block works",
-      "short": "..",
-      "github": "https://github.com/Hydrophobefireman/adblockcheck",
-      "app": ""
-    },
-    {
-      "title": "Emoji Picker",
-      "description": "That's it..",
-      "short": "..",
-      "github": "https://github.com/Hydrophobefireman/emojipicker",
-      "app": "https://emojipicker.now.sh"
-    },
-    {
       "title": "NewsPy",
       "description": "Get news from different sources (dead for now)",
       "short": "News App",
       "github": "",
-      "app": ""
-    },
-    {
-      "title": "Image Scraper",
-      "description": "Python script to get images from google and bing",
-      "short": "Simple python scripts",
-      "github": "https://github.com/Hydrophobefireman/image-scrape",
-      "app": ""
-    },
-    {
-      "title": "DSS-JS",
-      "description": "Simple bundler agnostic CSS library, compiles classnames using hashes",
-      "short": "CSS Lib",
-      "github": "https://github.com/hydrophobefireman/dss-js",
       "app": ""
     },
     {

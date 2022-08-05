@@ -13,6 +13,7 @@ import {
 import {useLocation, useViewportSize} from "../../hooks";
 import {is404, showBrowser} from "../../state";
 import {AboutIcon, Beaker, Icon404, Terminal} from "./icons";
+
 const tab = css({
   minWidth: "20%",
   display: "inline-block",
@@ -55,12 +56,14 @@ const urlInput = css({
   paddingRight: "0.2rem",
   borderTopRightRadius: "10px",
   borderBottomRightRadius: "10px",
+  height: "2rem",
 });
 const urlHost = css({
   paddingLeft: "0.2rem",
   borderTopLeftRadius: "10px",
   borderBottomLeftRadius: "10px",
   fontWeight: "lighter",
+  maxHeight: "2rem",
 });
 const tabBox = css({
   backgroundColor: "#2c2c2c",
@@ -137,7 +140,7 @@ export function BrowserTabs() {
             class={[omnibox, urlInput]}
             onInput={onInput}
             value={value.replace(FIRST_SLASH, "")}
-          ></input>
+          />
         </div>
       </form>
     </div>
