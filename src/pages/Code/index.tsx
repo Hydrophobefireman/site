@@ -6,8 +6,8 @@ import {heading} from "../../styles";
 
 const {oss} = json;
 const ossCard = css({
-  width: "200px",
-  margin: "10px",
+  width: "90%",
+  // margin: "10px",
   background: "var(--default-accent)",
   boxShadow: "var(--box-shadow)",
   borderRadius: "10px",
@@ -44,6 +44,10 @@ export default function Code() {
         class={css({
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))",
+          rowGap: "10px",
+          columnGap: "20px",
+          width: "95%",
+          margin: "auto",
           gridAutoRows: "1fr",
         })}
       >

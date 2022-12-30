@@ -9,7 +9,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const {autoPrefixCSS} = require("catom/dist/css");
 const babel = require("./.babelconfig");
 const uiConfig = require("./ui.config.json");
-const {browserslistToTargets, transform} = require("@parcel/css");
+const {browserslistToTargets, transform} = require("lightningcss");
 const browserslist = require("browserslist");
 const mode = process.env.NODE_ENV;
 const isProd = mode === "production";
@@ -124,7 +124,7 @@ function getCfg(isLegacy) {
         [
           new TerserWebpackPlugin({parallel: true}),
           new CssMinimizerPlugin({
-            minify: CssMinimizerPlugin.parcelCssMinify,
+            minify: CssMinimizerPlugin.lightningCssMinify,
             parallel: Math.floor(require("os").cpus()?.length / 2) || 1,
           }),
         ],
