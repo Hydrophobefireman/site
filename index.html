@@ -1,22 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hpfm.dev</title>
-    <meta name="description" content="Hydrophobefireman" />
+    <title>bhavesh.dev</title>
     <base href="/" />
     <%= htmlWebpackPlugin.options.css %>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "e655fb7127ac40c5bd5894fb84d3d046"}'
-    ></script>
     <!-- 
       You can use this html file to add your own fonts, 
       a best practice usage of font loading has been added for you.
     -->
     <link rel="preconnect" href="https://fonts.hpfm.dev" crossorigin />
+
+    <!-- <script async src="https://c.hpfm.dev/script.js" data-website-id="c951c50a-b0b2-4a65-afe5-d2d147db75f5"></script> -->
 
     <script data-js="touch-intent-css-fix">
       /iPhone|iPod|iPad/.test(navigator.platform) &&
@@ -24,37 +20,36 @@
           "*{cursor:pointer}");
     </script>
   </head>
-
   <body>
     <div id="app-mount">
       <noscript>This App uses JavaScript...</noscript>
+      <template is="custom" custom-element="loading-spinner">
+        <style>
+          .spinner {
+            margin: auto;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            animation: rotate 0.8s infinite linear;
+            border: 6px solid transparent;
+            border-right-color: var(--default-accent);
+            border-bottom-color: var(--default-accent);
+            border-left-color: var(--default-accent);
+            transition: 0.3s linear;
+          }
+
+          @keyframes rotate {
+            from {
+              transform: rotate(0);
+            }
+
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        </style>
+        <div class="spinner"></div>
+      </template>
     </div>
-    <template is="custom" custom-element="loading-spinner">
-      <style>
-        .spinner {
-          margin: auto;
-          height: 50px;
-          width: 50px;
-          border-radius: 50%;
-          animation: rotate 0.8s infinite linear;
-          border: 6px solid transparent;
-          border-right-color: var(--default-accent);
-          border-bottom-color: var(--default-accent);
-          border-left-color: var(--default-accent);
-          transition: 0.3s linear;
-        }
-
-        @keyframes rotate {
-          from {
-            transform: rotate(0);
-          }
-
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      </style>
-      <div class="spinner"></div>
-    </template>
   </body>
 </html>

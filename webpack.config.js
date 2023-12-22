@@ -1,22 +1,20 @@
-const path = require("path");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HTMLInlineCSSWebpackPlugin =
   require("html-inline-css-webpack-plugin").default;
+const webpack = require("webpack");
 const WebpackModuleNoModulePlugin = require("@hydrophobefireman/module-nomodule");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const {autoPrefixCSS} = require("catom/dist/css");
 const babel = require("./.babelconfig");
 const uiConfig = require("./ui.config.json");
-const {browserslistToTargets, transform} = require("lightningcss");
-const browserslist = require("browserslist");
 const mode = process.env.NODE_ENV;
 const isProd = mode === "production";
 const {outputDir, staticFilePrefix, inlineCSS, enableCatom, fonts} = uiConfig;
-const browserslistConfig = browserslistToTargets(
-  browserslist("last 2 versions")
-);
+const path = require("path");
+require("dotenv").config();
+
 function prodOrDev(a, b) {
   return isProd ? a : b;
 }
@@ -48,22 +46,6 @@ const contentLoaderOptions = {
     ? [{loader: "url-loader", options: {fallback: "file-loader"}}]
     : [{loader: "file-loader"}],
 };
-/**
- *
- * @param {string} css
- */
-function parcelHandleCss(css) {
-  const {code} = transform({
-    code: Buffer.from(css),
-    filename: "1.css",
-    drafts: {customMedia: true, nesting: true},
-    minify: true,
-    targets: browserslistConfig,
-    sourceMap: false,
-  });
-
-  return Promise.resolve({css: code.toString()});
-}
 
 function getEnvObject(isLegacy) {
   const prod = !isLegacy;
@@ -128,7 +110,7 @@ function getCfg(isLegacy) {
             parallel: Math.floor(require("os").cpus()?.length / 2) || 1,
           }),
         ],
-        []
+        [],
       ),
       splitChunks: {
         chunks: "all",
@@ -142,7 +124,7 @@ function getCfg(isLegacy) {
           compilation,
           files,
           tags,
-          options
+          options,
         ) {
           let css = uiConfig.enableCatom
             ? `<style>
@@ -176,7 +158,7 @@ function getCfg(isLegacy) {
             removeRedundantAttributes: true,
             removeComments: true,
           },
-          !1
+          !1,
         ),
       }),
       new MiniCssExtractPlugin({
@@ -187,8 +169,9 @@ function getCfg(isLegacy) {
         mode: isLegacy ? "legacy" : "modern",
         fonts,
       }),
+      new webpack.EnvironmentPlugin(["NODE_ENV"]),
     ].filter(Boolean),
   };
 }
 
-module.exports = isProd ? [getCfg(false), getCfg(true)] : getCfg(false);
+module.exports = getCfg(false);

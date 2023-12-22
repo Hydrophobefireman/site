@@ -1,9 +1,12 @@
 {
   "enableCatom": true,
-  "inlineCSS": false,
+  "inlineCSS": true,
   "preferBase64Images": true,
   "outputDir": "build",
   "staticDir": "build_static",
   "staticFilePrefix": "_ui",
-  "fonts": [{"href": "https://fonts.hpfm.dev/poppins.css"}]
+  "fonts": [
+    {"href": "https://fonts.hpfm.dev/poppins.css"},
+    {"href": "https://fonts.hpfm.dev/cmu.css"}
+  ]
 }

@@ -22,6 +22,14 @@ export default function Landing() {
         Writes Python, JavaScript, Rust and the occasional framework. Loves open
         source, compilers, clean code, and a fast web.
       </div>
+      <div>
+        <a
+          class={css({textDecoration: "underline"})}
+          href="https://blog.hpfm.dev"
+        >
+          Blog
+        </a>
+      </div>
     </section>
   );
 }
