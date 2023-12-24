@@ -19,10 +19,10 @@ if (!Promise.prototype.finally) {
 }
 export default function Blog() {
   useEffect(() => {
-    if (location.href.includes("localhost")) return;
-    (window as any).umami.track("blog opened").finally(() => {
-      location.replace(BLOG_URL);
-    });
+    if (location.host.includes("localhost")) return;
+    const t = (window as any).umami.track("blog opened");
+    const redir = () => location.replace(BLOG_URL);
+    t ? t.finally(redir) : redir();
   }, []);
   return (
     <div>
