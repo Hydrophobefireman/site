@@ -19,6 +19,7 @@ if (!Promise.prototype.finally) {
 }
 export default function Blog() {
   useEffect(() => {
+    if (location.href.includes("localhost")) return;
     (window as any).umami.track("blog opened").finally(() => {
       location.replace(BLOG_URL);
     });
