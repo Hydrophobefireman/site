@@ -12,7 +12,7 @@ import {
 
 import {useLocation, useViewportSize} from "../../hooks";
 import {is404, showBrowser} from "../../state";
-import {AboutIcon, Beaker, Icon404, Terminal} from "./icons";
+import {AboutIcon, Beaker, BlogIcon, Icon404, Terminal} from "./icons";
 
 const tab = css({
   minWidth: "20%",
@@ -96,7 +96,7 @@ export function BrowserTabs() {
         loadURL(value);
       } catch (e) {}
     },
-    [value]
+    [value],
   );
   const $404 = useSharedStateValue(is404);
   return (
@@ -117,6 +117,7 @@ export function BrowserTabs() {
             icon={Beaker}
           />
           <Tab href="/code" text="Code" location={location} icon={Terminal} />
+          <Tab href="/blog" text={"Blog"} location={location} icon={BlogIcon} />
           {$404 && (
             <Tab
               href="/"
@@ -169,9 +170,12 @@ function Tab({activeLocations, icon, href, text, location}) {
   }
   const [Icon, setIcon] = useState(LoadingIcon);
   useEffect(() => {
-    setTimeout(() => {
-      setIcon(() => icon);
-    }, Math.floor(Math.random() * 2000));
+    setTimeout(
+      () => {
+        setIcon(() => icon);
+      },
+      Math.floor(Math.random() * 2000),
+    );
   }, []);
 
   return (
