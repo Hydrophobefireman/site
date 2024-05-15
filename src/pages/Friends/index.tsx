@@ -16,6 +16,11 @@ export default function Friends() {
           </a>
         </li>
         <li>
+          <a href="https://coleroberts.dev" target="_blank">
+            Cole Roberts
+          </a>
+        </li>
+        <li>
           <a href="https://harmya.me/" target="_blank">
             Harmya Bhatt
           </a>
