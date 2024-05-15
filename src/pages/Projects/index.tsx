@@ -36,6 +36,15 @@ export default function Projects() {
   return (
     <section class={css({fontSize: "1.2rem"})}>
       <div class={[heading]}>Projects</div>
+
+      <div>
+        <a
+          class={css({textDecoration: "underline"})}
+          href={"https://github.com/hydrophobefireman"}
+        >
+          Github
+        </a>
+      </div>
       <section
         class={css({
           media: {

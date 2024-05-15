@@ -1,3 +1,4 @@
+export {AtSymbolIcon} from "@kit/icons";
 export function AboutIcon({size = "1rem"}) {
   return (
     <svg

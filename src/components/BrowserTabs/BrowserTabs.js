@@ -12,7 +12,14 @@ import {
 
 import {useLocation, useViewportSize} from "../../hooks";
 import {is404, showBrowser} from "../../state";
-import {AboutIcon, Beaker, BlogIcon, Icon404, Terminal} from "./icons";
+import {
+  AboutIcon,
+  AtSymbolIcon,
+  Beaker,
+  BlogIcon,
+  Icon404,
+  Terminal,
+} from "./icons";
 
 const tab = css({
   minWidth: "20%",
@@ -116,8 +123,14 @@ export function BrowserTabs() {
             location={location}
             icon={Beaker}
           />
-          <Tab href="/code" text="Code" location={location} icon={Terminal} />
+          {/* <Tab href="/code" text="Code" location={location} icon={Terminal} /> */}
           <Tab href="/blog" text={"Blog"} location={location} icon={BlogIcon} />
+          <Tab
+            href="/friends"
+            text={"Friends"}
+            location={location}
+            icon={() => <AtSymbolIcon stroke="white" />}
+          />
           {$404 && (
             <Tab
               href="/"
