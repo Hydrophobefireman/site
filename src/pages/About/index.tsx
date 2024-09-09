@@ -30,6 +30,7 @@ export default function Landing() {
           Blog
         </a>
       </div>
+      <div>Contact: hi at hpfm dot dev</div>
     </section>
   );
 }
